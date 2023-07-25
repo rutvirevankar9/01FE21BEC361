@@ -58,6 +58,7 @@ void postOrder(struct Node* node, FILE* outputFile) {
 
 int main()
 {
+    FILE* inputFile = fopen("inputs.txt", "r");
     int n;
 
     printf("Enter the number of random numbers to generate: ");
@@ -66,15 +67,15 @@ int main()
     // Set the seed for random number generation
     srand(time(0));
 
-    printf("Random numbers:\n");
+
     for (int i = 0; i < n; i++)
     {
-        printf("%d\n", rand());
+        fprintf(inputFile,"%d\n", rand());
     }
 
     return 0;
     // Open input and output files
-    FILE* inputFile = fopen("inputs.txt", "r");
+
     FILE* preOrderFile = fopen("preorder.txt", "w");
     FILE* inOrderFile = fopen("inorder.txt", "w");
     FILE* postOrderFile = fopen("postorder.txt", "w");
